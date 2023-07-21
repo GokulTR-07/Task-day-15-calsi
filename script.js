@@ -29,21 +29,21 @@ function createbutton1(tagname,attrname1,attrvalue1,content,attrname2, attrvalue
 
 
 function display(res){
-  document.getElementById("int-box").value+=res;
+  document.getElementById("result").value+=res;
 }
 
 function allclear(){
-  document.getElementById("int-box").value="";
+  document.getElementById("result").value="";
 }
 
 function del(){
-  var op = document.getElementById("int-box").value;
-  document.getElementById("int-box").value = op.slice(0,-1);
+  var op = document.getElementById("result").value;
+  document.getElementById("result").value = op.slice(0,-1);
 }
 function equal(){
-  var equal = document.getElementById("int-box").value;
+  var equal = document.getElementById("result").value;
   var output = eval(equal);
-  document.getElementById("int-box").value = output;
+  document.getElementById("result").value = output;
 }
 
 
@@ -51,12 +51,14 @@ var con = createelement("div","class","con container");
 var row = createelement("div","class","row");
 var col = createelement("div","class","col col-sm-12"); 
 var cal = createelement("div","class","cal")
-var int = createelement("input","type","text","id","int-box","placeholder","0");
-var title = createelement("h1","class","title");
+var int = createelement("input","type","text","id","result","placeholder","0");
+var title = createelement("h1","id","title");
 title.innerHTML = "Calculator using DOM"
 
+var description = createelement("p","id","description")
+description.innerHTML = "( This is used to solve Arithmetic operation )"
 
-var button1 = createbutton1("button","id","but-1","AC","onclick","allclear()");
+var button1 = createbutton1("button","id","clear","AC","onclick","allclear()");
 var button2 = createbutton1("button","class","but-2","DEL","onclick","del()");
 var button3 = createbutton("button","class","but-3","%");
 var button4 = createbutton("button","class","but-4","/");
@@ -67,18 +69,19 @@ var button8 = createbutton("button","class","but-8","*");
 var button9 = createbutton("button","class","but-9","4");
 var button10 = createbutton("button","class","but-10","5");
 var button11 = createbutton("button","class","but-11","6");
-var button12 = createbutton("button","class","but-12","-");
+var button12 = createbutton("button","id","subtract","-");
 var button13 = createbutton("button","class","but-13","1");
 var button14 = createbutton("button","class","but-14","2");
 var button15 = createbutton("button","class","but-15","3");
-var button16 = createbutton("button","class","but-16","+");
+var button16 = createbutton("button","id","add","+");
 var button17 = createbutton("button","class","but-17",".");
 var button18 = createbutton("button","class","but-18","0");
-var button19 = createbutton1("button","class","but-19","=","onclick","equal()");
+var button19 = createbutton1("button","id","equal","=","onclick","equal()");
 
 
 
 document.body.append(title);
+document.body.append(description);
 
 
 con.append(row);
